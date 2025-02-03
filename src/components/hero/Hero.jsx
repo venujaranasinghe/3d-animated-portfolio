@@ -2,28 +2,74 @@ import Speech from "./Speech"
 import "./hero.css"
 import { motion } from "framer-motion";
 
+const awardVariants = {
+    initial: {
+        x: -100,
+        opacity: 0,
+    },
+    animate: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            staggerChildren: 0.2,
+        },
+    },
+};
+
+const followVariants = {
+    initial: {
+        y: -100,
+        opacity: 0,
+    },
+    animate: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            staggerChildren: 0.2,
+        },
+    },
+};
+
 const Hero = () => {
     return (
         <div className="hero">
             <div className="hSection left">
-                <h1 className="hTitle">
+                <motion.h1
+                    initial={{ y: -100, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 1 }}
+                    className="hTitle">
                     Hi,
                     <br />
                     <span>I'm Venuja</span>
-                </h1>
-                <div className="awards">
-                    <h2>A Computer Science Undergraduate,
-                    Web Developer & Machine Learning Enthusiast
-                    </h2>
-                    <p>As a passionate computer science student, I specialize in building responsive websites and applications. Check out my latest projects.</p>
-                    <img src="/gitnew.png" alt="" />
+                </motion.h1>
+                <motion.div variants={awardVariants}
+                    initial="initial"
+                    animate="animate"
+                    className="awards">
+                    <motion.h2 variants={awardVariants} >A Computer Science Undergraduate,
+                        Web Developer & Machine Learning Enthusiast
+                    </motion.h2>
+                    <motion.p variants={awardVariants} >As a passionate computer science student, I specialize in building responsive websites and applications. Check out my latest projects.</motion.p>
+                    <motion.img variants={awardVariants} src="/gitnew.png" alt="" />
                     {/* <div className="awardList">
                         <h2>Let's Connect!</h2>
                         <img src="/up.png" alt="" />
                         <img src="/stack.png" alt="" />
                     </div> */}
-                </div>
-                <a href="#services" className="scroll">
+                </motion.div>
+                <motion.a
+                    animate={{ y: [0, 5], opacity: [0, 1, 0] }}
+                    transition={{
+                        repeat: Infinity,
+                        duration: 4,
+                        ease: "easeInOut",
+                    }}
+                    href="#services"
+                    className="scroll"
+                >
                     <svg
                         width="50px"
                         height="50px"
@@ -49,17 +95,26 @@ const Hero = () => {
                             strokeLinecap="round"
                         />
                     </svg>
-                </a>
+                </motion.a>
             </div>
 
             <div className="hSection right">
                 <Speech />
-                <div className="social">
-                    <h2>Let's Connect!</h2>
-                    <img src="/instanew.png" alt="" />
-                    <img src="/fbnew.png" alt="" />
-                    <img src="/linkedinnew.png" alt="" />
-                </div>
+                <motion.div
+                    variants={followVariants}
+                    initial="initial"
+                    animate="animate" className="social">
+                    <motion.h2 variants={followVariants}>Let's Connect!</motion.h2>
+                    <motion.a variants={followVariants} href="/">
+                        <img src="/instanew.png" alt="" />
+                    </motion.a>
+                    <motion.a variants={followVariants} href="/">
+                        <img src="/fbnew.png" alt="" />
+                    </motion.a>
+                    <motion.a variants={followVariants} href="/">
+                        <img src="/linkedinnew.png" alt="" />
+                    </motion.a>
+                </motion.div>
                 {/* <div className="follow">
                     <a href="/">
                         <img src="/insta.png" alt="" />
@@ -73,7 +128,7 @@ const Hero = () => {
                     </div>
                 </div> */}
                 {/* BUBBLE */}
-                
+
                 {/* CONTACT BUTTON */}
                 <motion.a
                     href="/#contact"
