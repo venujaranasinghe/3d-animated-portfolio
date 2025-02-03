@@ -1,12 +1,14 @@
 import Speech from "./Speech"
 import "./hero.css"
+import { motion } from "framer-motion";
 
 const Hero = () => {
     return (
         <div className="hero">
             <div className="hSection left">
                 <h1 className="hTitle">
-                    Hey There,
+                    Hi,
+                    <br />
                     <span>I'm Venuja</span>
                 </h1>
                 <div className="awards">
@@ -21,16 +23,7 @@ const Hero = () => {
                         <img src="/stack.png" alt="" />
                     </div>
                 </div>
-                <motion.a
-                    animate={{ y: [0, 5], opacity: [0, 1, 0] }}
-                    transition={{
-                        repeat: Infinity,
-                        duration: 4,
-                        ease: "easeInOut",
-                    }}
-                    href="#services"
-                    className="scroll"
-                >
+                <a href="#services" className="scroll">
                     <svg
                         width="50px"
                         height="50px"
@@ -40,7 +33,7 @@ const Hero = () => {
                     >
                         <path
                             d="M5 9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9V15C19 18.866 15.866 22 12 22C8.13401 22 5 18.866 5 15V9Z"
-                            stroke="white"
+                            stroke="black"
                             strokeWidth="1"
                         />
                         <motion.path
@@ -51,24 +44,30 @@ const Hero = () => {
                                 ease: "easeInOut",
                             }}
                             d="M12 5V8"
-                            stroke="white"
+                            stroke="black"
                             strokeWidth="1"
                             strokeLinecap="round"
                         />
                     </svg>
-                </motion.a>
+                </a>
             </div>
 
             <div className="hSection right">
-                <div className="follow">
+                <Speech />
+                {/* <div className="follow">
                     <a href="/">
                         <img src="/insta.png" alt="" />
                         <img src="/fb.png" alt="" />
                         <img src="/linkedin.png" alt="" />
                     </a>
-                </div>
+                    <div className="followTextContainer">
+                        <div className="followText">
+                            VISIT ME!
+                        </div>
+                    </div>
+                </div> */}
                 {/* BUBBLE */}
-                <Speech />
+                
                 {/* CONTACT BUTTON */}
                 <motion.a
                     href="/#contact"
@@ -91,7 +90,7 @@ const Hero = () => {
                         }}
                     >
                         <svg viewBox="0 0 200 200" width="150" height="150">
-                            <circle cx="100" cy="100" r="90" fill="pink" />
+                            <circle cx="100" cy="100" r="90" fill="lightblue" />
                             <path
                                 id="innerCirclePath"
                                 fill="none"
