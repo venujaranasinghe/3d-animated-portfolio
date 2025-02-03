@@ -154,8 +154,8 @@
 .bubble {
   width: 100%;
   height: 100px;
-  background-color: white;
-  color: #555;
+  background-color: #ddd;
+  color: #5f9ea0;
   padding: 24px;
   font-size: 18px;
   border-radius: 20px 20px 0px 20px;
@@ -358,6 +358,12 @@
     font-size: 10px;
     width: 70px;
     height: 100px;
-    margin-bottom: 200px;
+    /* margin-bottom: 200px; */
+    margin-top: 0;
+  }
+
+  .contactButton svg{
+    width: 80px;
+    margin-top: 100px;
   }
 }
