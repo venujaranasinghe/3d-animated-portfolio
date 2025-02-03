@@ -12,16 +12,16 @@ const Hero = () => {
                     <span>I'm Venuja</span>
                 </h1>
                 <div className="awards">
-                    <h2>A Computer Science Undergraduate
-                        <br />
-                        Web Developer & Machine Learning Enthusiast
+                    <h2>A Computer Science Undergraduate,
+                    Web Developer & Machine Learning Enthusiast
                     </h2>
-                    <p>As a passionate computer science student, I specialize in building responsive websites and applications. Check out my latest projects</p>
-                    <div className="awardList">
-                        <img src="/git.gif" alt="" />
+                    <p>As a passionate computer science student, I specialize in building responsive websites and applications. Check out my latest projects.</p>
+                    <img src="/gitnew.png" alt="" />
+                    {/* <div className="awardList">
+                        <h2>Let's Connect!</h2>
                         <img src="/up.png" alt="" />
                         <img src="/stack.png" alt="" />
-                    </div>
+                    </div> */}
                 </div>
                 <a href="#services" className="scroll">
                     <svg
@@ -54,6 +54,12 @@ const Hero = () => {
 
             <div className="hSection right">
                 <Speech />
+                <div className="social">
+                    <h2>Let's Connect!</h2>
+                    <img src="/instanew.png" alt="" />
+                    <img src="/fbnew.png" alt="" />
+                    <img src="/linkedinnew.png" alt="" />
+                </div>
                 {/* <div className="follow">
                     <a href="/">
                         <img src="/insta.png" alt="" />
@@ -121,6 +127,11 @@ const Hero = () => {
                         </div>
                     </motion.div>
                 </motion.a>
+            </div>
+            <div className="bg">
+                <div className="hImg">
+                    <img src="/v2.png" alt="" />
+                </div>
             </div>
         </div>
     )
