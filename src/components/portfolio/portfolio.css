@@ -46,14 +46,18 @@
 
 .pText p{
     font-weight: 300;
+    font-size: 24px;
+    color: #7b7a7a;
 }
 .pText button{
-    background-color: #333333;
+    background-color: #d0e9fc;
     padding: 12px;
     border-radius: 10px;
     border: none;
-    font-weight: 500;
+    font-weight: 700;
     cursor: pointer;
+    font-size: 24px;
+    color: #5f9ea0;
 }
 
 @media (max-width: 1536px){
