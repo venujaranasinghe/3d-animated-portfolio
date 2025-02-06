@@ -1,6 +1,7 @@
 import Hero from "./components/hero/Hero";
 import Services from "./components/services/Services";
 import Portfolio from "./components/portfolio/Portfolio";
+import Education from "./components/education/Education";
 import Contact from "./components/contact/Contact";
 
 const App = () => {
@@ -9,8 +10,9 @@ const App = () => {
       <section id="#home"><Hero /></section>
       <section id="#services"><Services /></section>
       {/* <section id="#portfolio"> */}
-        <Portfolio />
-        {/* </section> */}
+      <Portfolio />
+      {/* </section> */}
+      <section id="#education"><Education /></section> 
       <section id="#contact"><Contact /></section>
     </div>
   )

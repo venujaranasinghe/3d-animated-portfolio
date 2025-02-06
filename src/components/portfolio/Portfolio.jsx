@@ -94,7 +94,7 @@ const ListItem = ({ item }) => {
 
     const ref = useRef();
 
-    const inInView = useInView(ref, {margin: "-100px"})
+    const inInView = useInView(ref, { margin: "-100px" })
 
     return (
         <div className="pItem" ref={ref}>
@@ -113,36 +113,6 @@ const ListItem = ({ item }) => {
 }
 
 const Portfolio = () => {
-    //   const [containerDistance, setContainerDistance] = useState(0);
-    //  const ref = useRef(null);
-
-    // useEffect(() => {
-    //   if (ref.current) {
-    //     const rect = ref.current.getBoundingClientRect();
-    //     setContainerDistance(rect.left);
-    //   }
-    // }, []);
-
-    // FIX: Re-calculate when screen size changes
-    //   useEffect(() => {
-    //     const calculateDistance = () => {
-    //       if (ref.current) {
-    //         const rect = ref.current.getBoundingClientRect();
-    //         setContainerDistance(rect.left);
-    //       }
-    //     };
-
-    //     calculateDistance();
-
-    //     window.addEventListener("resize", calculateDistance);
-
-    //     return () => {
-    //       window.removeEventListener("resize", calculateDistance);
-    //     };
-    //   }, []);
-
-    //   const { scrollYProgress } = useScroll({ target: ref });
-
 
     const [containerDistance, setContainerDistance] = useState(0);
 
@@ -167,9 +137,11 @@ const Portfolio = () => {
         <div className="portfolio" ref={ref}>
 
             <motion.div className="pList" style={{ x: xTranslate }}>
+            
                 <div className="empty"
                     style={{ width: window.innerWidth - containerDistance }}
                 />
+                
                 {items.map(item => (
                     <ListItem item={item} key={item.id} />
                 ))}

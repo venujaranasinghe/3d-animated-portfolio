@@ -3,6 +3,15 @@
     position: relative;
 }
 
+.portfolio-title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 50px;
+    color: #333;
+}
+
+
 .pList{
     position: sticky;
     top: 0;
