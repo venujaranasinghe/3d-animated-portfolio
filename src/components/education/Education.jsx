@@ -19,14 +19,14 @@ const listVariants = {
 };
 
 const services = [
-  { id: 1, title: "• Python for Beginners (UoM)", tools: "   View Certificate", counter: 6 },
-  { id: 2, title: "• AI/ML Stage 1 (SLIIT)", tools: "   View Certificate", counter: 4 },
-  { id: 3, title: "• AI/ML Stage 2 (SLIIT)", tools: "   View Certificate", counter: 3 },
+  { id: 1, title: "• Computer Science (UG) - SLIIT", tools: "   Pending...", counter: 6 },
+  { id: 2, title: "• Python for Beginners (UoM)", tools: "   View Certificate", counter: 6 },
+  { id: 3, title: "• AI/ML Stage 1 (SLIIT)", tools: "   View Certificate", counter: 4 },
+  { id: 4, title: "• AI/ML Stage 2 (SLIIT)", tools: "   View Certificate", counter: 3 },
   { id: 5, title: "• AI Foundations: Neural Networks (Linkedin Learning)", tools: "   View Certificate", counter: 1 },
   { id: 6, title: "• AI Foundations: Machine Learning (Linkedin Learning)", tools: "   View Certificate", counter: 1 },
-  { id: 7, title: "• Full Stack E-Commerce Projects (GreatStack)", tools: "   View Certificate", counter: 1 },
-  { id: 8, title: "• Web Design for Beginners (UoM)", tools: "   View Certificate", counter: 1 },
-  { id: 9, title: "• Fundamentals of DevOps On Aws (Simplilearn)", tools: "   View Certificate", counter: 1 },
+  { id: 7, title: "• Web Design for Beginners (UoM)", tools: "   View Certificate", counter: 1 },
+  { id: 8, title: "• Fundamentals of DevOps On Aws (Simplilearn)", tools: "   View Certificate", counter: 1 },
 ];
 
 const Education = () => {

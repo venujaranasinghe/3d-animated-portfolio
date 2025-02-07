@@ -20,8 +20,8 @@ const listVariants = {
 };
 
 const services = [
-  { id: 1, img: "/ui.png", title: "Front-End Development", tools: "Tools: Html, Css, ReactJs, NextJs, Figma", counter: 6 },
-  { id: 2, img: "/be.png", title: "Back-End Development", tools: "Tools: Java Springboot, Python Jango", counter: 4 },
+  { id: 1, img: "/ui.png", title: "Front-End Development & UI Design", tools: "Tools: Html, Css, ReactJs, NextJs, Figma", counter: 6 },
+  { id: 2, img: "/be.png", title: "Back-End Development & API Integration", tools: "Tools: Java Springboot, Python Jango", counter: 4 },
   { id: 3, img: "/bd.png", title: "Database Design and Management", tools: "Tools: Mysql, Mongodb, Postresql", counter: 3 },
   { id: 4, img: "/ml.png", title: "Machine Learning", tools: "Tools: Python", counter: 1 },
 ];

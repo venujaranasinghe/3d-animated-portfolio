@@ -23,19 +23,19 @@
 }
 
 .service {
-    width: 80%;
+    width: 50%;
     padding: 30px;
     border-radius: 20px;
     background-color: #d0e9fc;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     gap: 16px;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
 
 .service:hover {
-    transform: scale(1.5);
+    transform: scale(1.1);
     transition: 0.3s;
 }
 
@@ -62,8 +62,9 @@
 .serviceInfo h2 {
     font-size: 28px;
     font-weight: 500;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
     color: #7b7a7a;
+    align-items: baseline;
 }
 
 .serviceInfo:hover{
