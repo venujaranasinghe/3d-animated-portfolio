@@ -50,7 +50,7 @@
 
 .serviceIcon:hover{
     transform: scale(1.2);
-    /* Slight zoom effect */
+    /* Slight zoom effect  */
     transition: 0.3s;
 }
 
