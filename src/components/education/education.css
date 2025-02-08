@@ -12,7 +12,7 @@
   }
   
   .sTitle {
-    font-size: 88px;
+    font-size: 80px;
     margin-bottom: 24px;
   }
   
@@ -52,7 +52,6 @@
   
   .serviceIcon:hover {
     transform: scale(1.2);
-    /* Slight zoom effect */
     transition: 0.3s;
   }
   

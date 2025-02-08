@@ -19,7 +19,7 @@ const listVariants = {
 };
 
 const services = [
-  { id: 1, title: "• Computer Science (UG) - SLIIT", tools: "   Pending...", counter: 6 },
+  { id: 1, title: "• Computer Science (UG) - SLIIT", tools: "   View Certificate", counter: 6 },
   { id: 2, title: "• Python for Beginners (UoM)", tools: "   View Certificate", counter: 6 },
   { id: 3, title: "• AI/ML Stage 1 (SLIIT)", tools: "   View Certificate", counter: 4 },
   { id: 4, title: "• AI/ML Stage 2 (SLIIT)", tools: "   View Certificate", counter: 3 },

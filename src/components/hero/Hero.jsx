@@ -108,13 +108,13 @@ const Hero = () => {
                     initial="initial"
                     animate="animate" className="social">
                     <motion.h2 variants={followVariants}>Let's Connect!</motion.h2>
-                    <motion.a variants={followVariants} href="/">
+                    <motion.a variants={followVariants} href="https://www.instagram.com/la_venuja/">
                         <img src="/instanew.png" alt="" />
                     </motion.a>
-                    <motion.a variants={followVariants} href="/">
+                    <motion.a variants={followVariants} href="https://web.facebook.com/venuja.ranasinghe.3">
                         <img src="/fbnew.png" alt="" />
                     </motion.a>
-                    <motion.a variants={followVariants} href="/">
+                    <motion.a variants={followVariants} href="https://www.linkedin.com/in/venuja-ranasinghe/">
                         <img src="/linkedinnew.png" alt="" />
                     </motion.a>
                 </motion.div>

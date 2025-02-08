@@ -13,6 +13,10 @@
     justify-content: center;
 }
 
+.cTitle{
+    font-size: 88px;
+}
+
 form{
     width: 80%;
     display: flex;
@@ -30,10 +34,12 @@ input, textarea{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    font-size: 50px;
 }
 
 label{
-    font-size: 13px;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .formButton{
@@ -43,4 +49,46 @@ label{
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
 }
+
+
+@media (max-width: 1280px) {
+    .form {
+      width: 100%;
+    }
+    .cTitle{
+        font-size: 60px;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .contact {
+      gap: 30px;
+    }
+    .cTitle{
+        font-size: 48px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contact {
+      flex-direction: column;
+    }
+
+    .cTitle{
+        font-size: 36px;
+    }
+  
+    .cSection {
+      width: 100%;
+    }
+  
+    .cSection:first-child {
+      height: 70%;
+    }
+    .cSection:last-child {
+      height: 30%;
+    }
+  }
