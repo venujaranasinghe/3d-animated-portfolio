@@ -1,12 +1,9 @@
 "use client"
 
-import { useState, useRef, Suspense, lazy } from "react"
+import { useState, useRef } from "react"
 import { motion, AnimatePresence, useInView } from "framer-motion"
-import { Award, ExternalLink, ChevronRight, Search, X, Calendar, MapPin, School } from 'lucide-react'
+import { Award, ExternalLink, ChevronRight, Search, X, Calendar, MapPin, School, Bookmark, ChevronLeft } from 'lucide-react'
 import "./education.css"
-
-// Lazy load the 3D scene component
-//const Scene = lazy(() => import("./Scene"))
 
 const certificates = [
   {
@@ -15,7 +12,8 @@ const certificates = [
     institution: "Sri Lanka Institute of Information Technology (SLIIT)",
     date: "2019 - 2023",
     location: "Colombo, Sri Lanka",
-    description: "Bachelor's degree in Computer Science with a focus on software engineering, data structures, and algorithms.",
+    description:
+      "Bachelor's degree in Computer Science with a focus on software engineering, data structures, and algorithms.",
     image: "/certificates/cs-degree.jpg",
     link: "https://example.com/certificate1",
     category: "Degree",
@@ -26,7 +24,8 @@ const certificates = [
     institution: "University of Moratuwa",
     date: "June 2021",
     location: "Moratuwa, Sri Lanka",
-    description: "Comprehensive introduction to Python programming language covering fundamentals, data structures, and basic algorithms.",
+    description:
+      "Comprehensive introduction to Python programming language covering fundamentals, data structures, and basic algorithms.",
     image: "/certificates/python.jpg",
     link: "https://example.com/certificate2",
     category: "Programming",
@@ -37,7 +36,8 @@ const certificates = [
     institution: "Sri Lanka Institute of Information Technology (SLIIT)",
     date: "August 2022",
     location: "Colombo, Sri Lanka",
-    description: "Introduction to artificial intelligence and machine learning concepts, including supervised and unsupervised learning.",
+    description:
+      "Introduction to artificial intelligence and machine learning concepts, including supervised and unsupervised learning.",
     image: "/certificates/ai-ml-1.jpg",
     link: "https://example.com/certificate3",
     category: "AI/ML",
@@ -48,7 +48,8 @@ const certificates = [
     institution: "Sri Lanka Institute of Information Technology (SLIIT)",
     date: "November 2022",
     location: "Colombo, Sri Lanka",
-    description: "Advanced machine learning techniques including neural networks, deep learning, and practical applications.",
+    description:
+      "Advanced machine learning techniques including neural networks, deep learning, and practical applications.",
     image: "/certificates/ai-ml-2.jpg",
     link: "https://example.com/certificate4",
     category: "AI/ML",
@@ -59,7 +60,8 @@ const certificates = [
     institution: "LinkedIn Learning",
     date: "January 2023",
     location: "Online",
-    description: "Deep dive into neural network architectures, backpropagation, and implementation using modern frameworks.",
+    description:
+      "Deep dive into neural network architectures, backpropagation, and implementation using modern frameworks.",
     image: "/certificates/neural-networks.jpg",
     link: "https://example.com/certificate5",
     category: "AI/ML",
@@ -70,7 +72,8 @@ const certificates = [
     institution: "LinkedIn Learning",
     date: "February 2023",
     location: "Online",
-    description: "Comprehensive overview of machine learning algorithms, feature engineering, and model evaluation techniques.",
+    description:
+      "Comprehensive overview of machine learning algorithms, feature engineering, and model evaluation techniques.",
     image: "/certificates/machine-learning.jpg",
     link: "https://example.com/certificate6",
     category: "AI/ML",
@@ -92,7 +95,8 @@ const certificates = [
     institution: "Simplilearn",
     date: "April 2023",
     location: "Online",
-    description: "Overview of DevOps practices and implementation on AWS cloud platform, including CI/CD pipelines and infrastructure as code.",
+    description:
+      "Overview of DevOps practices and implementation on AWS cloud platform, including CI/CD pipelines and infrastructure as code.",
     image: "/certificates/devops-aws.jpg",
     link: "https://example.com/certificate8",
     category: "Cloud & DevOps",
@@ -138,46 +142,105 @@ const Education = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
   const [activeCategory, setActiveCategory] = useState("All")
-  
-  const sectionRef = useRef()
+  const [currentPage, setCurrentPage] = useState(1)
+  const certificatesPerPage = 2
+
+  const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: false, margin: "-100px" })
 
   // Filter certificates based on search query and category
   const filteredCertificates = certificates.filter((cert) => {
-    const matchesSearch = cert.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                         cert.institution.toLowerCase().includes(searchQuery.toLowerCase())
-    
+    const matchesSearch =
+      cert.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      cert.institution.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      cert.description.toLowerCase().includes(searchQuery.toLowerCase())
+
     const matchesCategory = activeCategory === "All" || cert.category === activeCategory
-    
+
     return matchesSearch && matchesCategory
   })
 
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredCertificates.length / certificatesPerPage)
+  const indexOfLastCertificate = currentPage * certificatesPerPage
+  const indexOfFirstCertificate = indexOfLastCertificate - certificatesPerPage
+  const currentCertificates = filteredCertificates.slice(indexOfFirstCertificate, indexOfLastCertificate)
+
   // Get unique categories
-  const categories = ["All", ...new Set(certificates.map(cert => cert.category))]
+  const categories = ["All", ...new Set(certificates.map((cert) => cert.category))]
 
   const openModal = (certificate) => {
     setSelectedCertificate(certificate)
     setIsModalOpen(true)
+    // Prevent body scrolling when modal is open
+    document.body.style.overflow = "hidden"
   }
 
   const closeModal = () => {
     setIsModalOpen(false)
+    // Restore body scrolling when modal is closed
+    document.body.style.overflow = "auto"
+  }
+
+  // Handle escape key to close modal
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape") {
+      closeModal()
+    }
+  }
+
+  // Reset filters and pagination
+  const resetFilters = () => {
+    setSearchQuery("")
+    setActiveCategory("All")
+    setCurrentPage(1)
+  }
+
+  // Handle page change
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
+
+  // Handle previous page
+  const goToPreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1)
+    }
+  }
+
+  // Handle next page
+  const goToNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
+
+  // When filters change, reset to first page
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category)
+    setCurrentPage(1)
+  }
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value)
+    setCurrentPage(1)
   }
 
   return (
-    <div className="education-container" ref={sectionRef}>
-      <div className="education-content single-column">
-        <div className="education-left">
-          <motion.h1 
-            className="education-title"
+    <section className="education-section" ref={sectionRef} onKeyDown={handleKeyDown}>
+      <div className="container">
+        <div className="education-content">
+          <motion.div
+            className="education-header"
             variants={titleVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
-            Education & Certificates
-          </motion.h1>
-          
-          <motion.div 
+            <h1 className="education-title">Education & Certificates</h1>
+            <p className="education-subtitle">My academic journey and professional certifications</p>
+          </motion.div>
+
+          <motion.div
             className="education-search-container"
             variants={fadeInVariants}
             initial="hidden"
@@ -185,52 +248,60 @@ const Education = () => {
           >
             <div className="search-input-container">
               <Search className="search-icon" size={18} />
-              <input 
-                type="text" 
-                placeholder="Search certificates..." 
+              <input
+                type="text"
+                placeholder="Search certificates..."
                 className="education-search"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={handleSearchChange}
+                aria-label="Search certificates"
               />
               {searchQuery && (
-                <button className="clear-search" onClick={() => setSearchQuery("")}>
+                <button className="clear-search" onClick={() => setSearchQuery("")} aria-label="Clear search">
                   <X size={16} />
                 </button>
               )}
             </div>
-            
+
             <div className="category-filters">
-              {categories.map(category => (
-                <button 
+              {categories.map((category) => (
+                <button
                   key={category}
-                  className={`category-filter ${activeCategory === category ? 'active' : ''}`}
-                  onClick={() => setActiveCategory(category)}
+                  className={`category-filter ${activeCategory === category ? "active" : ""}`}
+                  onClick={() => handleCategoryChange(category)}
+                  aria-pressed={activeCategory === category}
                 >
                   {category}
                 </button>
               ))}
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="certificates-list"
             variants={containerVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
-            {filteredCertificates.length > 0 ? (
-              filteredCertificates.map((certificate) => (
-                <motion.div 
-                  key={certificate.id} 
+            {currentCertificates.length > 0 ? (
+              currentCertificates.map((certificate) => (
+                <motion.div
+                  key={certificate.id}
                   className="certificate-card"
                   variants={itemVariants}
                   onClick={() => openModal(certificate)}
-                  whileHover={{ scale: 1.03 }}
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
+                  <div className="certificate-category-badge">
+                    <Bookmark size={14} />
+                    <span>{certificate.category}</span>
+                  </div>
+
                   <div className="certificate-icon">
                     <Award size={24} />
                   </div>
+
                   <div className="certificate-info">
                     <h3>{certificate.title}</h3>
                     <p className="certificate-institution">
@@ -241,87 +312,130 @@ const Education = () => {
                       <Calendar size={14} />
                       {certificate.date}
                     </p>
+                    <p className="certificate-location">
+                      <MapPin size={14} />
+                      {certificate.location}
+                    </p>
                   </div>
+
                   <div className="certificate-action">
-                    <ChevronRight size={20} />
+                    <span>View Details</span>
+                    <ChevronRight size={16} />
                   </div>
                 </motion.div>
               ))
             ) : (
-              <motion.div 
-                className="no-results"
-                variants={fadeInVariants}
-              >
-                No certificates found matching your search.
+              <motion.div className="no-results" variants={fadeInVariants}>
+                <div className="no-results-icon">
+                  <Search size={32} />
+                </div>
+                <h3>No certificates found</h3>
+                <p>Try adjusting your search or filter criteria</p>
+                <button className="reset-search-btn" onClick={resetFilters}>
+                  Reset Filters
+                </button>
               </motion.div>
             )}
           </motion.div>
+
+          {/* Pagination */}
+          {filteredCertificates.length > 0 && (
+            <div className="pagination">
+              <button
+                className={`pagination-arrow ${currentPage === 1 ? "disabled" : ""}`}
+                onClick={goToPreviousPage}
+                disabled={currentPage === 1}
+                aria-label="Previous page"
+              >
+                <ChevronLeft size={18} />
+              </button>
+
+              <div className="pagination-numbers">
+                {Array.from({ length: totalPages }, (_, i) => (
+                  <button
+                    key={i + 1}
+                    className={`pagination-number ${currentPage === i + 1 ? "active" : ""}`}
+                    onClick={() => paginate(i + 1)}
+                    aria-label={`Page ${i + 1}`}
+                    aria-current={currentPage === i + 1 ? "page" : undefined}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                className={`pagination-arrow ${currentPage === totalPages ? "disabled" : ""}`}
+                onClick={goToNextPage}
+                disabled={currentPage === totalPages}
+                aria-label="Next page"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          )}
         </div>
-        
-        {/* <div className="education-right">
-          <Suspense fallback={<div className="scene-loading">Loading 3D Scene...</div>}>
-            <Scene />
-          </Suspense>
-        </div> */}
       </div>
-      
+
       {/* Certificate Modal */}
       <AnimatePresence>
         {isModalOpen && selectedCertificate && (
-          <motion.div 
+          <motion.div
             className="certificate-modal-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeModal}
           >
-            <motion.div 
+            <motion.div
               className="certificate-modal"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <button className="modal-close" onClick={closeModal}>
+              <button className="modal-close" onClick={closeModal} aria-label="Close modal">
                 <X size={24} />
               </button>
-              
+
               <div className="certificate-modal-content">
                 <div className="certificate-modal-image">
-                  <img 
-                    src={selectedCertificate.image || "/placeholder.svg?height=300&width=500"} 
-                    alt={selectedCertificate.title} 
+                  <div className="certificate-category-badge modal-badge">{selectedCertificate.category}</div>
+                  <img
+                    src={selectedCertificate.image || "/placeholder.svg?height=300&width=500"}
+                    alt={`${selectedCertificate.title} certificate`}
                     onError={(e) => {
-                      e.target.src = "/placeholder.svg?height=300&width=500";
+                      e.target.src = "/placeholder.svg?height=300&width=500"
                     }}
                   />
                 </div>
-                
+
                 <div className="certificate-modal-details">
                   <h2>{selectedCertificate.title}</h2>
-                  
+
                   <div className="certificate-detail">
                     <School size={18} />
                     <p>{selectedCertificate.institution}</p>
                   </div>
-                  
+
                   <div className="certificate-detail">
                     <Calendar size={18} />
                     <p>{selectedCertificate.date}</p>
                   </div>
-                  
+
                   <div className="certificate-detail">
                     <MapPin size={18} />
                     <p>{selectedCertificate.location}</p>
                   </div>
-                  
+
                   <div className="certificate-description">
+                    <h3>Description</h3>
                     <p>{selectedCertificate.description}</p>
                   </div>
-                  
-                  <a 
-                    href={selectedCertificate.link} 
-                    target="_blank" 
+
+                  <a
+                    href={selectedCertificate.link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="view-certificate-btn"
                   >
@@ -333,7 +447,7 @@ const Education = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </section>
   )
 }
 
