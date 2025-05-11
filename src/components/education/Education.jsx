@@ -26,7 +26,7 @@ const certificates = [
     location: "Moratuwa, Sri Lanka",
     description:
       "Comprehensive introduction to Python programming language covering fundamentals, data structures, and basic algorithms.",
-    image: "/certificates/python.jpg",
+    image: "/c2.png",
     link: "https://example.com/certificate2",
     category: "Programming",
   },
@@ -38,7 +38,7 @@ const certificates = [
     location: "Colombo, Sri Lanka",
     description:
       "Introduction to artificial intelligence and machine learning concepts, including supervised and unsupervised learning.",
-    image: "/certificates/ai-ml-1.jpg",
+    image: "/c4.png",
     link: "https://example.com/certificate3",
     category: "AI/ML",
   },
@@ -50,7 +50,7 @@ const certificates = [
     location: "Colombo, Sri Lanka",
     description:
       "Advanced machine learning techniques including neural networks, deep learning, and practical applications.",
-    image: "/certificates/ai-ml-2.jpg",
+    image: "/c5.png",
     link: "https://example.com/certificate4",
     category: "AI/ML",
   },
@@ -62,7 +62,7 @@ const certificates = [
     location: "Online",
     description:
       "Deep dive into neural network architectures, backpropagation, and implementation using modern frameworks.",
-    image: "/certificates/neural-networks.jpg",
+    image: "/c9.png",
     link: "https://example.com/certificate5",
     category: "AI/ML",
   },
@@ -74,7 +74,7 @@ const certificates = [
     location: "Online",
     description:
       "Comprehensive overview of machine learning algorithms, feature engineering, and model evaluation techniques.",
-    image: "/certificates/machine-learning.jpg",
+    image: "/c8.png",
     link: "https://example.com/certificate6",
     category: "AI/ML",
   },
@@ -85,7 +85,7 @@ const certificates = [
     date: "March 2025",
     location: "Moratuwa, Sri Lanka",
     description: "Introduction to web design principles, HTML, CSS, and responsive design techniques.",
-    image: "/certificates/web-design.jpg",
+    image: "/c6.png",
     link: "https://example.com/certificate7",
     category: "Web Development",
   },
@@ -97,7 +97,19 @@ const certificates = [
     location: "Online",
     description:
       "Overview of DevOps practices and implementation on AWS cloud platform, including CI/CD pipelines and infrastructure as code.",
-    image: "/certificates/devops-aws.jpg",
+    image: "/c1.png",
+    link: "https://example.com/certificate8",
+    category: "Cloud & DevOps",
+  },
+  {
+    id: 9,
+    title: "Full-Stack E-Commerce Project",
+    institution: "GreatStack",
+    date: "August 2024",
+    location: "Online",
+    description:
+      "Certificate for completing E-commerce Project using MERN Stack.",
+    image: "/c1.png",
     link: "https://example.com/certificate8",
     category: "Cloud & DevOps",
   },

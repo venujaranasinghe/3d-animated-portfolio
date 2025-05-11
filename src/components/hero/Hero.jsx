@@ -52,17 +52,31 @@ const Hero = () => {
                     initial="initial"
                     animate="animate"
                     className="awards">
-                    <motion.h2 variants={awardVariants} >A Computer Science Undergraduate,
-                        Web Developer & Machine Learning Enthusiast
+                    <motion.h2 variants={awardVariants}>
+                        A Computer Science Undergraduate, Web Developer & Machine Learning Enthusiast
                     </motion.h2>
-                    <motion.p variants={awardVariants} >As a passionate computer science student, I specialize in building responsive websites and applications. Check out my latest projects.</motion.p>
-                    <motion.img variants={awardVariants} src="/gitnew.png" alt="" />
-                    {/* <div className="awardList">
-                        <h2>Let's Connect!</h2>
-                        <img src="/up.png" alt="" />
-                        <img src="/stack.png" alt="" />
-                    </div> */}
+                    <motion.p variants={awardVariants}>
+                        As a passionate computer science student, I specialize in building responsive websites and applications. Check out my latest projects.
+                    </motion.p>
+
+                    <motion.a
+                        variants={awardVariants}
+                        href="https://github.com/venujaranasinghe"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <motion.img src="/gitnew.png" alt="GitHub" />
+                    </motion.a>
+
+                    {/* 
+    <div className="awardList">
+        <h2>Let's Connect!</h2>
+        <img src="/up.png" alt="" />
+        <img src="/stack.png" alt="" />
+    </div> 
+    */}
                 </motion.div>
+
                 <motion.a
                     animate={{ y: [0, 5], opacity: [0, 1, 0] }}
                     transition={{
