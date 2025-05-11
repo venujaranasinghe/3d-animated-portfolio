@@ -10,7 +10,7 @@ const certificates = [
     id: 1,
     title: "Computer Science (UG)",
     institution: "Sri Lanka Institute of Information Technology (SLIIT)",
-    date: "2019 - 2023",
+    date: "2023-2027",
     location: "Colombo, Sri Lanka",
     description:
       "Bachelor's degree in Computer Science with a focus on software engineering, data structures, and algorithms.",
@@ -22,7 +22,7 @@ const certificates = [
     id: 2,
     title: "Python for Beginners",
     institution: "University of Moratuwa",
-    date: "June 2021",
+    date: "June 2024",
     location: "Moratuwa, Sri Lanka",
     description:
       "Comprehensive introduction to Python programming language covering fundamentals, data structures, and basic algorithms.",
@@ -34,7 +34,7 @@ const certificates = [
     id: 3,
     title: "AI/ML Stage 1",
     institution: "Sri Lanka Institute of Information Technology (SLIIT)",
-    date: "August 2022",
+    date: "August 2024",
     location: "Colombo, Sri Lanka",
     description:
       "Introduction to artificial intelligence and machine learning concepts, including supervised and unsupervised learning.",
@@ -46,7 +46,7 @@ const certificates = [
     id: 4,
     title: "AI/ML Stage 2",
     institution: "Sri Lanka Institute of Information Technology (SLIIT)",
-    date: "November 2022",
+    date: "November 2024",
     location: "Colombo, Sri Lanka",
     description:
       "Advanced machine learning techniques including neural networks, deep learning, and practical applications.",
@@ -58,7 +58,7 @@ const certificates = [
     id: 5,
     title: "AI Foundations: Neural Networks",
     institution: "LinkedIn Learning",
-    date: "January 2023",
+    date: "January 2024",
     location: "Online",
     description:
       "Deep dive into neural network architectures, backpropagation, and implementation using modern frameworks.",
@@ -70,7 +70,7 @@ const certificates = [
     id: 6,
     title: "AI Foundations: Machine Learning",
     institution: "LinkedIn Learning",
-    date: "February 2023",
+    date: "February 2024",
     location: "Online",
     description:
       "Comprehensive overview of machine learning algorithms, feature engineering, and model evaluation techniques.",
@@ -82,7 +82,7 @@ const certificates = [
     id: 7,
     title: "Web Design for Beginners",
     institution: "University of Moratuwa",
-    date: "March 2021",
+    date: "March 2025",
     location: "Moratuwa, Sri Lanka",
     description: "Introduction to web design principles, HTML, CSS, and responsive design techniques.",
     image: "/certificates/web-design.jpg",
@@ -93,7 +93,7 @@ const certificates = [
     id: 8,
     title: "Fundamentals of DevOps On AWS",
     institution: "Simplilearn",
-    date: "April 2023",
+    date: "April 2024",
     location: "Online",
     description:
       "Overview of DevOps practices and implementation on AWS cloud platform, including CI/CD pipelines and infrastructure as code.",
